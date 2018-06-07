@@ -276,6 +276,7 @@ class CailianPress:
         driver.implicitly_wait(10)
         driver.get(self.url)
         not_end_of_today = True
+        count_of_news = 0
         while not_end_of_today:
             getmore_element = driver.find_element_by_class_name("getMore")
             getmore_element.click()
@@ -313,25 +314,29 @@ class CailianPress:
                         if cur_date:
                             if end_date == cur_date:
                                 is_valid_interval = True
-                                pass
+                                continue
                             else:
                                 pass
                         else:
                             print("无法抽取当前日期")
                             break
-                    elif is_valid_interval:
+
+                    if is_valid_interval:
+                        count_of_news += 1
+                        print("cur_id: " + str(count_of_news))
+                        if len(self.text_list) > 1:
+                            print(self.text_list[-1].datetime)
                         cur_ctime = self.extract_ctime_from_one_element(item)
                         if cur_date == end_date:
                             if cur_ctime == etime_tag:
                                 print("start found!")
                                 is_valid_internal_ctime = True
-                        elif cur_date == start_date:
+                        if cur_date == start_date:
                             if cur_ctime == stime_tag:
                                 print("end founded !")
                                 is_valid_internal_ctime = False
                                 break
                         if is_valid_internal_ctime:
-                            print("fuck")
                             news = self.extract_one_news_from_one_element(item, cur_date)
                             if news:
                                 self.text_list.append(news)
@@ -354,7 +359,7 @@ class CailianPress:
     def run(self):
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
-        #self.extract_news_data_from_to_by_timetag("2018-06-03", "19:52", "2018-06-04", "20:01")
+        #self.extract_news_data_from_to_by_timetag("2018-06-06", "08:02", "2018-06-06", "23:59")
         self.extract_news_data_from_last_time()
         self.write_text_into_file()
 

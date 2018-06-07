@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fcc808dc-ee26-4c80-b1cd-488d3284c71f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cailianpress.py" beforeDir="false" afterPath="$PROJECT_DIR$/cailianpress.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,15 +14,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/spider$cailianpress.coverage" NAME="cailianpress Coverage Results" MODIFIED="1528209004135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/spider$cailianpress.coverage" NAME="cailianpress Coverage Results" MODIFIED="1528380137885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="cailianpress.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cailianpress.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="695">
-              <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+            <state relative-caret-position="467">
+              <caret line="362" column="47" lean-forward="true" selection-start-line="362" selection-start-column="47" selection-end-line="362" selection-end-column="47" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -43,6 +44,7 @@
       <find>value</find>
       <find>except</find>
       <find>valid_end_of_element_list</find>
+      <find>14:05</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -69,16 +71,17 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="130" />
-    <option name="y" value="139" />
+    <option name="x" value="373" />
+    <option name="y" value="44" />
     <option name="width" value="1408" />
-    <option name="height" value="868" />
+    <option name="height" value="872" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -94,7 +97,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -154,7 +156,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="130" y="139" width="1408" height="868" extended-state="0" />
+    <frame x="373" y="44" width="1408" height="872" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -186,6 +188,26 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/cailianpress.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6954">
+          <caret line="366" column="20" lean-forward="true" selection-start-line="366" selection-start-column="20" selection-end-line="366" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cailianpress.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cailianpress.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6821">
@@ -500,8 +522,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cailianpress.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+        <state relative-caret-position="467">
+          <caret line="362" column="47" lean-forward="true" selection-start-line="362" selection-start-column="47" selection-end-line="362" selection-end-column="47" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
