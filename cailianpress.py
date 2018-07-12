@@ -359,8 +359,8 @@ class CailianPress:
     def run(self):
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
-        self.extract_news_data_from_to_by_timetag("2018-07-10", "09:58", "2018-07-10", "23:36")
-        #self.extract_news_data_from_last_time()
+        #self.extract_news_data_from_to_by_timetag("2018-07-10", "09:58", "2018-07-10", "23:36")
+        self.extract_news_data_from_last_time()
         self.write_text_into_file()
 
 
