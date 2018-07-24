@@ -15,6 +15,7 @@ class CailianPress:
         self.web_name = "cailianpress"
         # current date
         self.cur_date = str(datetime.datetime.now().strftime('%Y-%m-%d'))
+        self.cur_year = str(datetime.datetime.now().year)
         self.cur_path = str(sys.path[0])
         # write logs to this file with specific file name
         self.log_file = self.cur_path + "\\logs\\" + self.web_name + "_" + self.cur_date + ".log"
@@ -46,6 +47,103 @@ class CailianPress:
         file.close()
         return line
 
+    def valid_element_exist_by_xpath(self, ele, xpath):
+        es = ele.find_elements_by_xpath(xpath)
+        size = len(es)
+        if size == 0:
+            return False
+        elif size == 1:
+            return True
+        else:
+            print(xpath + ", found " + str(size))
+            return True
+
+    def valid_element_exist_by_css(self, ele, css):
+        es = ele.find_elements_by_css_selector(css)
+        size = len(es)
+        if size == 0:
+            return False
+        elif size == 1:
+            return True
+        else:
+            print(css + ", found " + str(size))
+            return True
+
+    def valid_is_commmon_news_element(self, ele):
+        return self.valid_element_exist_by_xpath(ele, ".[@class='jsx-1890198016']")
+
+    def extract_news_from_common_news_element(self, ele):
+        try:
+            common_news_element = ele.find_element_by_xpath("./div/div/div/span[@class='jsx-1890198016']")
+            common_news = str(common_news_element.text).replace("\u200B", "")
+            return common_news
+        except NoSuchElementException as ex:
+            return None
+
+    def extract_time_from_common_news_element(self, ele):
+        try:
+            common_news_time_element = ele.find_element_by_css_selector(".jsx-1890198016.time-text.f-l.f-s-18.pf-medium")
+            common_news_time = str(common_news_time_element.text)
+            return common_news_time
+        except NoSuchElementException as ex:
+            return None
+
+    def valid_is_common_day_title_element(self, ele):
+        return self.valid_element_exist_by_css(ele, ".jsx-3362659131.telegraph-time-box")
+
+    def extract_news_from_common_day_title_element(self, ele):
+        try:
+            common_day_title_news_element = ele.find_element_by_xpath("./div[@class='jsx-1890198016']/div/div/div/span[@class='jsx-1890198016']")
+            common_day_title_news = str(common_day_title_news_element.text).replace("\u200B", "")
+            return common_day_title_news
+        except Exception as ex:
+            return None
+
+    def extract_time_from_common_day_title_element(self, ele):
+        try:
+            common_day_title_news_time_element = ele.find_element_by_css_selector(".jsx-1890198016.time-text.f-l.f-s-18.pf-medium")
+            common_day_title_news_time = str(common_day_title_news_time_element.text)
+            return common_day_title_news_time
+        except Exception as ex:
+            return None
+
+    def extract_date_from_common_day_title_element(self, ele):
+        try:
+            common_day_title_news_date_element = ele.find_element_by_css_selector(".jsx-3362659131.f-s-14.c-333.telegraph-time")
+            common_day_title_news_date = str(common_day_title_news_date_element.text).split(" ")[0]
+            print("common day title date: " + str(common_day_title_news_date))
+            return str(common_day_title_news_date)
+        except Exception as ex:
+            return None
+
+    def valid_is_first_day_title_element(self, ele):
+        return self.valid_element_exist_by_css(ele, ".jsx-897524169.first-tele-time")
+
+    def extract_news_from_first_day_title_element(self, ele):
+        try:
+            first_day_title_news_element = ele.find_element_by_xpath("./div[@class='jsx-1890198016']/div/div/div/span")
+            first_day_title_news = str(first_day_title_news_element.text).replace("\u200B", "")
+            return first_day_title_news
+        except NoSuchElementException:
+            return None
+
+    def extract_time_from_first_day_title_element(self, ele):
+        try:
+            first_day_title_time_element = ele.find_element_by_css_selector(".jsx-1890198016.time-text.f-l.f-s-18.pf-medium")
+            first_day_title_time = str(first_day_title_time_element.text)
+            return first_day_title_time
+        except NoSuchElementException:
+            return None
+
+    def extract_date_from_first_day_title_element(self, ele):
+        try:
+            first_day_title_date_element = ele.find_element_by_css_selector(".jsx-897524169.f-s-14.c-333.first-tele-time")
+            first_day_title_date = str(first_day_title_date_element.text).split(" ")[0]
+            print("first day title date: " + first_day_title_date)
+            return str(first_day_title_date)
+        except NoSuchElementException:
+            return None
+
     @staticmethod
     def valid_text_to_be_present_in_attribute(ele, attr, text):
         attr_value = ele.get_attribute(attr)
@@ -54,104 +152,44 @@ class CailianPress:
         else:
             return False
 
-    def extract_one_news_from_one_element(self, ele, date):
-        if self.valid_text_to_be_present_in_attribute(ele, "style", "overflow"):
-            # extract date info
-            return None
-        else:
-            ctime_element = ele.find_element_by_xpath("./div[@class='newsLeft']/div[@class='cTime']")
-            if ctime_element:
-                cdate = str(date + " " + ctime_element.text)
-                text_element = ele.find_element_by_xpath("./div[@class='newsRight']/p")
-                if text_element:
-                    text = str(text_element.text)
-                    return CailianPressNews(cdate, text)
-                else:
-                    return None
-            else:
-                return None
-
-    """
-    in news item    <div class="cTime" data-jsx="2516998736">10:46</div>
-    """
-    def extract_ctime_from_one_element(self, ele):
-        if self.valid_text_to_be_present_in_attribute(ele, "style", "overflow"):
-            # extract date info
-            return None
-        else:
-            ctime_element = ele.find_element_by_xpath("./div[@class='newsLeft']/div[@class='cTime']")
-            if ctime_element:
-                ctime = str(ctime_element.text)
-                return ctime
-            else:
-                return None
-
-    """
-    <div style="width:100%;height:43px;overflow:hidden;border-top:1px solid #eee;border-bottom:1px solid #eee;" data-reactid="64"><div class="logo" data-reactid="65">
-        <div class="time" data-reactid="67">2018-06-04</div>
-    """
-    @staticmethod
-    def extract_news_date_from_one_element(ele):
-        date_element = ele.find_element_by_xpath("./div[@class='time']")
-        if date_element:
-            date = str(date_element.text)
-            return date
-        else:
-            return None
-
     def valid_end_of_element_list(self, ele):
-        if self.valid_text_to_be_present_in_attribute(ele, "class", "getMoreWrap"):
+        if self.valid_element_exist_by_css(ele, ".jsx-927607683.wrap"):
+            end_ele = ele.find_element_by_css_selector(".jsx-927607683.wrap")
+            if end_ele.text == "已经加载到最后了":
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    def valid_is_last_of_element_list(self, ele):
+        if self.valid_element_exist_by_css(ele, ".jsx-927607683.wrap"):
+            end_ele = ele.find_element_by_css_selector(".jsx-927607683.wrap")
+            if end_ele.text == "点击加载更多":
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    def valid_to_the_last_time(self, cur_date, cur_time, last_date, last_time):
+        if cur_date == last_date and cur_time <= last_time:
             return True
         else:
             return False
+
+    def valid_is_date_item(self, ele):
+        if self.valid_is_common_day_title_element(ele):
+            return self.extract_date_from_common_day_title_element(ele)
+        if self.valid_is_first_day_title_element(ele):
+            return self.extract_date_from_first_day_title_element(ele)
+        return None
 
     def print_text(self):
         for news in self.text_list:
             print("----------------------------------------------------")
             print(news.datetime)
             print(news.text)
-
-    def extract_news_data_today(self):
-        driver = self.driver
-        driver.implicitly_wait(10)
-        driver.get(self.url)
-        not_end_of_today = True
-        while not_end_of_today:
-            getmore_element = driver.find_element_by_class_name("getMore")
-            getmore_element.click()
-            driver.implicitly_wait(10)
-            centerwrpa_element = driver.find_element_by_xpath(
-                "//div[@class='centerWrpa']/div[@class='contentLeft']/div[2]")
-            item_elements = centerwrpa_element.find_elements_by_xpath("./div")
-            cur_date = ""
-            for item in item_elements:
-                if self.valid_text_to_be_present_in_attribute(item, "style", "overflow"):
-                    cur_date = self.extract_news_date_from_one_element(item)
-                    if self.cur_date == cur_date:
-                        continue
-                    else:
-                        not_end_of_today = False
-                        break
-            if not not_end_of_today:
-                for item in item_elements:
-                    if self.valid_text_to_be_present_in_attribute(item, "style", "overflow"):
-                        cur_date = self.extract_news_date_from_one_element(item)
-                        if cur_date:
-                            if self.cur_date == cur_date:
-                                pass
-                            else:
-                                break
-                        else:
-                            print("无法抽取当前日期")
-                            break
-                    else:
-                        news = self.extract_one_news_from_one_element(item, cur_date)
-                        if news:
-                            self.text_list.append(news)
-                        else:
-                            print("无法抽取当前新闻内容！")
-        #driver.close()
-        #self.print_text()
 
     def extract_news_data_from_last_time(self):
         last_time = self.read_last_time_from_the_latest_datafile()
@@ -163,112 +201,101 @@ class CailianPress:
         driver.implicitly_wait(10)
         driver.get(self.url)
         not_end_of_today = True
+        count = 0
         while not_end_of_today:
-            getmore_element = driver.find_element_by_class_name("getMore")
-            getmore_element.click()
+            getmore_element = driver.find_element_by_css_selector(".jsx-927607683.wrap")
+            if getmore_element:
+                print("click once!")
+                getmore_element.click()
+            else:
+                not_end_of_today = False
+            count += 1
+            print("click " + str(count))
             driver.implicitly_wait(10)
-            centerwrpa_element = driver.find_element_by_xpath(
-                "//div[@class='centerWrpa']/div[@class='contentLeft']/div[2]")
-            item_elements = centerwrpa_element.find_elements_by_xpath("./div")
+            centerwrpa_element = driver.find_element_by_css_selector(".jsx-992155393.contentLeft")
+            item_elements = centerwrpa_element.find_elements_by_xpath("./div/div")
+            valid_item_elements = item_elements[1:]
+            n = len(valid_item_elements)
+            print("list count: " + str(n))
             cur_date = ""
             is_start_valid = False
-            for item in item_elements:
-                if self.valid_text_to_be_present_in_attribute(item, "style", "overflow"):
-                    cur_date = self.extract_news_date_from_one_element(item)
-                    if str((datetime.datetime.strptime(last_date, '%Y-%m-%d')
-                            - datetime.timedelta(days=1)).strftime('%Y-%m-%d')) != cur_date:
-                        continue
+
+            common_day_title_elements = driver.find_elements_by_css_selector(".jsx-3362659131.telegraph-time")
+            size_of_common_day_title_element = len(common_day_title_elements)
+            print("common day title element: " + str(size_of_common_day_title_element))
+            if size_of_common_day_title_element == 0:
+                cur_date = self.cur_date
+                if cur_date == last_date:
+                    # check the last news ctime
+                    last_news_element = valid_item_elements[-2]
+                    # extract ctime
+                    ctime_ele = last_news_element.find_element_by_xpath("./div/div/span")
+                    ctime = ctime_ele.text
+                    if ctime <= last_ctime:
+                        print("end founded!")
+                        not_end_of_today == False
                     else:
-                        not_end_of_today = False
-                        break
-                elif self.valid_end_of_element_list(item):
-                    break
+                        continue
+            else:
+                # check the last common day title
+                last_common_day_title_element = common_day_title_elements[-1]
+                last_common_day_title_date = last_common_day_title_element.text.split(" ")[0]
+                last_common_day_title_date = self.cur_year + "-" + last_common_day_title_date
+                if last_common_day_title_date != last_date:
+                    continue
                 else:
-                    ctime = self.extract_ctime_from_one_element(item)
-                    if cur_date == last_date and ctime == last_ctime:
-                        print("stop!!!")
+                    # check the last news
+                    last_news_element = valid_item_elements[-2]
+                    # extract ctime
+                    ctime_ele = last_news_element.find_element_by_xpath("./div/div/span")
+                    ctime = ctime_ele.text
+                    if ctime <= last_ctime:
+                        print("end founded")
                         not_end_of_today = False
-                        break
+                    else:
+                        continue
 
             if not not_end_of_today:
                 is_valid_interval = False
                 is_valid_internal_ctime = True
-                for item in item_elements:
-                    if self.valid_text_to_be_present_in_attribute(item, "style", "overflow"):
-                        cur_date = self.extract_news_date_from_one_element(item)
-                        if cur_date:
-                            is_valid_interval = True
-                        else:
-                            print("无法抽取当前日期")
+                print("start!")
+                cur_date = ""  # contains both cur_year and cur_date, eg. 2018-06-06
+                n = 0
+                for item in valid_item_elements:
+                    n += 1
+                    print("current: " + str(n))
+                    if self.valid_is_commmon_news_element(item):
+                        news_text = self.extract_news_from_common_news_element(item)
+                        ctime = self.extract_time_from_common_news_element(item)
+                        cdate = cur_date + " " + str(ctime)
+                        if self.valid_to_the_last_time(cur_date, ctime, last_date, last_ctime):
                             break
-                    elif is_valid_interval:
-                        cur_ctime = self.extract_ctime_from_one_element(item)
-                        if cur_date == last_date:
-                            if cur_ctime == last_ctime:
-                                is_valid_internal_ctime = False
-                                break
-                        if is_valid_internal_ctime:
-                            news = self.extract_one_news_from_one_element(item, cur_date)
-                            if news:
-                                self.text_list.append(news)
-                            else:
-                                print("无法抽取当前新闻内容！")
-                    else:
-                        pass
-        self.print_text()
-
-    """
-    this method does not work, since the website limit the click times of the button 'getMore',
-    usually it will disappear after click 15 times. 
-    """
-    def extract_news_data_from_to(self, start_date, end_date):
-        driver = self.driver
-        driver.implicitly_wait(10)
-        driver.get(self.url)
-        not_end_of_today = True
-        while not_end_of_today:
-            getmore_element = driver.find_element_by_class_name("getMore")
-            getmore_element.click()
-            driver.implicitly_wait(10)
-            centerwrpa_element = driver.find_element_by_xpath(
-                "//div[@class='centerWrpa']/div[@class='contentLeft']/div[2]")
-            item_elements = centerwrpa_element.find_elements_by_xpath("./div")
-            cur_date = ""
-            for item in item_elements:
-                if self.valid_text_to_be_present_in_attribute(item, "style", "overflow"):
-                    cur_date = self.extract_news_date_from_one_element(item)
-                    if str((datetime.datetime.strptime(start_date, '%Y-%m-%d')
-                            - datetime.timedelta(days=1)).strftime('%Y-%m-%d')) != cur_date:
+                        news = CailianPressNews(cdate, news_text)
+                        self.text_list.append(news)
+                        print("add common news element")
+                    elif self.valid_is_common_day_title_element(item):
+                        news_text = self.extract_news_from_common_day_title_element(item)
+                        cur_date = self.cur_year + "-" + self.extract_date_from_common_day_title_element(item)
+                        ctime = self.extract_time_from_common_day_title_element(item)
+                        if self.valid_to_the_last_time(cur_date, ctime, last_date, last_ctime):
+                            break
+                        cdate = cur_date + " " + ctime
+                        news = CailianPressNews(cdate, news_text)
+                        self.text_list.append(news)
+                        print("add common day title element")
+                    elif self.valid_is_last_of_element_list(item):
+                        print("last element")
                         continue
+                    elif self.valid_is_first_day_title_element(item):
+                        news_text = self.extract_news_from_first_day_title_element(item)
+                        cur_date = self.cur_year + "-" + self.extract_date_from_first_day_title_element(item)
+                        ctime = self.extract_time_from_first_day_title_element(item)
+                        cdate = cur_date + " " + ctime
+                        news = CailianPressNews(cdate, news_text)
+                        self.text_list.append(news)
+                        print("add first day title element")
                     else:
-                        not_end_of_today = False
-                        break
-            if not not_end_of_today:
-                is_valid_interval = False
-                for item in item_elements:
-                    if self.valid_text_to_be_present_in_attribute(item, "style", "overflow"):
-                        cur_date = self.extract_news_date_from_one_element(item)
-                        if cur_date:
-                            if end_date == cur_date:
-                                is_valid_interval = True
-                                pass
-                            elif str((datetime.datetime.strptime(start_date, '%Y-%m-%d')
-                                      - datetime.timedelta(days=1)).strftime('%Y-%m-%d')) \
-                                    == cur_date:
-                                break
-                            else:
-                                pass
-                        else:
-                            print("无法抽取当前日期")
-                            break
-                    elif is_valid_interval:
-                        news = self.extract_one_news_from_one_element(item, cur_date)
-                        if news:
-                            self.text_list.append(news)
-                        else:
-                            print("无法抽取当前新闻内容！")
-                    else:
-                        pass
+                        print("extract news failed!")
         self.print_text()
 
     def extract_news_data_from_to_by_timetag(self, start_date, stime_tag, end_date, etime_tag):
@@ -359,7 +386,7 @@ class CailianPress:
     def run(self):
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
-        #self.extract_news_data_from_to_by_timetag("2018-07-10", "09:58", "2018-07-10", "23:36")
+        #self.extract_news_data_from_to_by_timetag("2018-07-13", "17:47", "2018-07-16", "10:41")
         self.extract_news_data_from_last_time()
         self.write_text_into_file()
 
