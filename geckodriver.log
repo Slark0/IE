@@ -2723,3 +2723,24 @@ WARNING: pi[Child 35pe error: 109: file z:/build/build/src/ipc/chromium/src/chro
 [GPU 12
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1533891981452	geckodriver	INFO	geckodriver 0.21.0
+1533891981452	geckodriver	INFO	Listening on 127.0.0.1:4700
+1533891993033	geckodriver	INFO	geckodriver 0.21.0
+1533891993033	geckodriver	INFO	Listening on 127.0.0.1:4707
+1533891996066	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Dell\\AppData\\Local\\Temp\\rust_mozprofile.zKW1bCV4UnKH"
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+1533891999144	Marionette	INFO	Listening on port 4715
+1533891999601	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd340004ee0f9280e1b.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd340004ee0f9280e1b.js, line 0: Successfully compiled asm.js code (total compilation time 1ms; not stored in cache (too small to benefit))
+[Child 10000, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/[Chsrc/ipc/cildhromium/sr 128c/chr84, Come/cohromemmon/_Chilipc_chdThreaannel_wd] WAin.ccRNING, : piline 3pe err46
+or: 109[Chil:d  f1ile z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 12884, Chr[Parent 4952, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9512, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9512, [GPU 9340
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
