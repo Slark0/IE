@@ -2861,3 +2861,52 @@ JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd
 [Child 14076, Chrome_ChildThrea[GPU 456, Ch
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1534214568690	geckodriver	INFO	geckodriver 0.21.0
+1534214568877	geckodriver	INFO	Listening on 127.0.0.1:30740
+1534214571752	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Dell\\AppData\\Local\\Temp\\rust_mozprofile.MP7KTbBmkAY1"
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+1534214579988	Marionette	INFO	Listening on port 30748
+1534214580945	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd340004ee0f9280e1b.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd340004ee0f9280e1b.js, line 0: Successfully compiled asm.js code (total compilation time 2ms; not stored in cache (too small to benefit))
+1534214755945	geckodriver	INFO	geckodriver 0.21.0
+1534214755952	geckodriver	INFO	Listening on 127.0.0.1:30879
+1534214759013	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Dell\\AppData\\Local\\Temp\\rust_mozprofile.jHEl6ZfcdbyR"
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+1534214763007	Marionette	INFO	Listening on port 30887
+1534214764066	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd340004ee0f9280e1b.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd340004ee0f9280e1b.js, line 0: Successfully compiled asm.js code (total compilation time 1ms; not stored in cache (too small to benefit))
+[Parent 5272, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 11088, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel[Chil_d 824win.cc, line 346
+, Chrome_ChildThre[ad] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 824, Chrome_Child[GPU 6544,
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1534240247690	geckodriver	INFO	geckodriver 0.21.0
+1534240247699	geckodriver	INFO	Listening on 127.0.0.1:2387
+1534240250716	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Dell\\AppData\\Local\\Temp\\rust_mozprofile.fEpgGtBs3GU8"
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Dell\AppData\Local\openvr\openvrpaths.vrpath
+1534240253683	Marionette	INFO	Listening on port 2395
+1534240254124	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd340004ee0f9280e1b.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cailianpress.com/_next/static/commons/main-5dd340004ee0f9280e1b.js, line 0: Successfully compiled asm.js code (total compilation time 1ms; not stored in cache (too small to benefit))
+[Child 1284, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/[Chiild 13732, Chpcrome_Chil/chromium/src/chrome/common/ipc_channel_win.dTcchread] WAR, lineNING: pip 346
+e error: 109[Child:  file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 13732, [Parent 12416, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8232, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 82[GPU 3624,
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
