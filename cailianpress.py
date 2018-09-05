@@ -47,6 +47,24 @@ class CailianPress:
         file.close()
         return line
 
+    @staticmethod
+    def count_news():
+        cur_path = str(sys.path[0])
+        rootdir = cur_path + "\\data"
+        count = 0
+        count_of_file = 0
+        for dirpath, dirnames, filenames in os.walk(rootdir):
+            for filename in filenames:
+                file_path = os.path.join(dirpath, filename)
+                fs = open(file_path, mode='r', encoding='utf-8')
+                count += len(fs.readlines())
+                count_of_file += 1
+                fs.close()
+        print("total file: " + str(count_of_file))
+        print("total news: " + str(count/2))
+
+
+
     def valid_element_exist_by_xpath(self, ele, xpath):
         es = ele.find_elements_by_xpath(xpath)
         size = len(es)
@@ -429,5 +447,7 @@ class CailianPress:
         self.write_text_into_file()
 
 
+
 cls = CailianPress()
 cls.run()
+CailianPress.count_news()
