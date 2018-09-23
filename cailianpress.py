@@ -442,7 +442,7 @@ class CailianPress:
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
         #self.extract_news_data_from_to_by_timetag("2018-07-13", "17:47", "2018-07-16", "10:41")
-        #self.extract_news_data_from("2018-09-12", "14:26")
+        #self.extract_news_data_from("2018-09-18", "16:14")
         self.extract_news_data_from_last_time()
         self.write_text_into_file()
 
