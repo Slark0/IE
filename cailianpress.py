@@ -63,8 +63,6 @@ class CailianPress:
         print("total file: " + str(count_of_file))
         print("total news: " + str(count/2))
 
-
-
     def valid_element_exist_by_xpath(self, ele, xpath):
         es = ele.find_elements_by_xpath(xpath)
         size = len(es)
@@ -88,11 +86,11 @@ class CailianPress:
             return True
 
     def valid_is_commmon_news_element(self, ele):
-        return self.valid_element_exist_by_xpath(ele, ".[@class='jsx-1890198016']")
+        return self.valid_element_exist_by_xpath(ele, ".[@class='jsx-3209043686']")
 
     def extract_news_from_common_news_element(self, ele):
         try:
-            common_news_element = ele.find_element_by_xpath("./div/div/div/span[@class='jsx-1890198016']")
+            common_news_element = ele.find_element_by_xpath("./div/div/div/span[@class='jsx-3209043686']")
             common_news = str(common_news_element.text).replace("\u200B", "")
             return common_news
         except NoSuchElementException as ex:
@@ -100,7 +98,7 @@ class CailianPress:
 
     def extract_time_from_common_news_element(self, ele):
         try:
-            common_news_time_element = ele.find_element_by_css_selector(".jsx-1890198016.time-text")
+            common_news_time_element = ele.find_element_by_css_selector(".jsx-3209043686.time-text")
             common_news_time = str(common_news_time_element.text)
             return common_news_time
         except NoSuchElementException as ex:
@@ -111,7 +109,7 @@ class CailianPress:
 
     def extract_news_from_common_day_title_element(self, ele):
         try:
-            common_day_title_news_element = ele.find_element_by_xpath("./div[@class='jsx-1890198016']/div/div/div/span[@class='jsx-1890198016']")
+            common_day_title_news_element = ele.find_element_by_xpath("./div[@class='jsx-3209043686']/div/div/div/span[@class='jsx-3209043686']")
             common_day_title_news = str(common_day_title_news_element.text).replace("\u200B", "")
             return common_day_title_news
         except Exception as ex:
@@ -119,7 +117,7 @@ class CailianPress:
 
     def extract_time_from_common_day_title_element(self, ele):
         try:
-            common_day_title_news_time_element = ele.find_element_by_css_selector(".jsx-1890198016.time-text")
+            common_day_title_news_time_element = ele.find_element_by_css_selector(".jsx-3209043686.time-text")
             common_day_title_news_time = str(common_day_title_news_time_element.text)
             return common_day_title_news_time
         except Exception as ex:
@@ -139,7 +137,7 @@ class CailianPress:
 
     def extract_news_from_first_day_title_element(self, ele):
         try:
-            first_day_title_news_element = ele.find_element_by_xpath("./div[@class='jsx-1890198016']/div/div/div/span")
+            first_day_title_news_element = ele.find_element_by_xpath("./div[@class='jsx-3209043686']/div/div/div/span")
             first_day_title_news = str(first_day_title_news_element.text).replace("\u200B", "")
             return first_day_title_news
         except NoSuchElementException:
@@ -147,7 +145,7 @@ class CailianPress:
 
     def extract_time_from_first_day_title_element(self, ele):
         try:
-            first_day_title_time_element = ele.find_element_by_css_selector(".jsx-1890198016.time-text")
+            first_day_title_time_element = ele.find_element_by_css_selector(".jsx-3209043686.time-text")
             first_day_title_time = str(first_day_title_time_element.text)
             return first_day_title_time
         except NoSuchElementException:
@@ -171,8 +169,8 @@ class CailianPress:
             return False
 
     def valid_end_of_element_list(self, ele):
-        if self.valid_element_exist_by_css(ele, ".jsx-927607683.wrap"):
-            end_ele = ele.find_element_by_css_selector(".jsx-927607683.wrap")
+        if self.valid_element_exist_by_css(ele, ".jsx-2850686949.wrap"):
+            end_ele = ele.find_element_by_css_selector(".jsx-2850686949.wrap")
             if end_ele.text == "已经加载到最后了":
                 return True
             else:
@@ -181,8 +179,8 @@ class CailianPress:
             return False
 
     def valid_is_last_of_element_list(self, ele):
-        if self.valid_element_exist_by_css(ele, ".jsx-927607683.wrap"):
-            end_ele = ele.find_element_by_css_selector(".jsx-927607683.wrap")
+        if self.valid_element_exist_by_css(ele, ".jsx-2850686949.wrap"):
+            end_ele = ele.find_element_by_css_selector(".jsx-2850686949.wrap")
             if end_ele.text == "点击加载更多":
                 return True
             else:
@@ -221,7 +219,7 @@ class CailianPress:
         not_end_of_today = True
         count = 0
         while not_end_of_today:
-            getmore_element = driver.find_element_by_css_selector(".jsx-927607683.wrap")
+            getmore_element = driver.find_element_by_css_selector(".jsx-2850686949.wrap")
             if getmore_element:
                 print("click once!")
                 getmore_element.click()
@@ -251,7 +249,7 @@ class CailianPress:
                     ctime = ctime_ele.text
                     if ctime <= last_ctime:
                         print("end founded!")
-                        not_end_of_today == False
+                        not_end_of_today = False
                     else:
                         continue
             else:
@@ -329,7 +327,7 @@ class CailianPress:
         count = 0
         is_before_the_first_day = False
         while not_end_of_today:
-            getmore_element = driver.find_element_by_css_selector(".jsx-927607683.wrap")
+            getmore_element = driver.find_element_by_css_selector(".jsx-2850686949.wrap")
             if getmore_element:
                 print("click once!")
                 getmore_element.click()
@@ -359,7 +357,7 @@ class CailianPress:
                     ctime = ctime_ele.text
                     if ctime <= last_ctime:
                         print("end founded!")
-                        not_end_of_today == False
+                        not_end_of_today = False
                     else:
                         continue
             else:
@@ -442,10 +440,9 @@ class CailianPress:
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
         #self.extract_news_data_from_to_by_timetag("2018-07-13", "17:47", "2018-07-16", "10:41")
-        #self.extract_news_data_from("2018-09-18", "16:14")
-        self.extract_news_data_from_last_time()
+        self.extract_news_data_from("2018-09-30", "22:36")
+        #self.extract_news_data_from_last_time()
         self.write_text_into_file()
-
 
 
 cls = CailianPress()
