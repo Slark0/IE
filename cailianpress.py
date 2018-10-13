@@ -228,6 +228,7 @@ class CailianPress:
             count += 1
             print("click " + str(count))
             driver.implicitly_wait(10)
+            time.sleep(2)
             centerwrpa_element = driver.find_element_by_css_selector(".jsx-992155393.contentLeft")
             item_elements = centerwrpa_element.find_elements_by_xpath("./div/div")
             valid_item_elements = item_elements[1:]
@@ -248,7 +249,7 @@ class CailianPress:
                     ctime_ele = last_news_element.find_element_by_xpath("./div/div/span")
                     ctime = ctime_ele.text
                     if ctime <= last_ctime:
-                        print("end founded!")
+                        print("end founded! " + ctime)
                         not_end_of_today = False
                     else:
                         continue
@@ -258,7 +259,7 @@ class CailianPress:
                 last_common_day_title_date = last_common_day_title_element.text.split(" ")[0]
                 last_common_day_title_date = self.cur_year + "-" + last_common_day_title_date
                 if last_date == self.cur_date:
-                    print("end founded")
+                    print("end founded" + last_date + "cur_date:" + self.cur_date)
                     not_end_of_today = False
                 elif last_common_day_title_date != last_date:
                     continue
@@ -269,7 +270,7 @@ class CailianPress:
                     ctime_ele = last_news_element.find_element_by_xpath("./div/div/span")
                     ctime = ctime_ele.text
                     if ctime <= last_ctime:
-                        print("end founded")
+                        print("end founded-" + ctime + "last_date > last_common_day_title_date" + last_date + ">" + last_common_day_title_date)
                         not_end_of_today = False
                     else:
                         continue
@@ -336,6 +337,7 @@ class CailianPress:
             count += 1
             print("click " + str(count))
             driver.implicitly_wait(10)
+            time.sleep(2)
             centerwrpa_element = driver.find_element_by_css_selector(".jsx-992155393.contentLeft")
             item_elements = centerwrpa_element.find_elements_by_xpath("./div/div")
             valid_item_elements = item_elements[1:]
@@ -366,8 +368,9 @@ class CailianPress:
                 last_common_day_title_element = common_day_title_elements[-1]
                 last_common_day_title_date = last_common_day_title_element.text.split(" ")[0]
                 last_common_day_title_date = self.cur_year + "-" + last_common_day_title_date
+                print("last_date : " + last_date)
                 if last_date == self.cur_date:
-                    print("end founded")
+                    print("end founded" + " : " + last_date)
                     not_end_of_today = False
                 elif last_common_day_title_date != last_date:
                     continue
@@ -378,7 +381,7 @@ class CailianPress:
                     ctime_ele = last_news_element.find_element_by_xpath("./div/div/span")
                     ctime = ctime_ele.text
                     if ctime <= last_ctime:
-                        print("end founded")
+                        print("end founded" + " : " + ctime)
                         not_end_of_today = False
                     else:
                         continue
@@ -440,7 +443,7 @@ class CailianPress:
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
         #self.extract_news_data_from_to_by_timetag("2018-07-13", "17:47", "2018-07-16", "10:41")
-        self.extract_news_data_from("2018-10-08", "12:08")
+        self.extract_news_data_from("2018-10-12", "00:56")
         #self.extract_news_data_from_last_time()
         self.write_text_into_file()
 
