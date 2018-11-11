@@ -8,7 +8,8 @@ from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import WebDriverException
 from cailianpressnews import CailianPressNews
 
-class CailianPress:
+
+class CailianPress(object):
 
     def __init__(self):
         self.url = "https://www.cailianpress.com/"
