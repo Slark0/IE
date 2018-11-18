@@ -1,7 +1,29 @@
 import copy
 
 
-class Entity(object):
+class Event(object):
+
+    class EventArgument(object):
+
+        def __init__(self):
+            self.__refid = None
+            self.__role = None
+
+        @property
+        def refid(self):
+            return self.__refid
+
+        @refid.setter
+        def refid(self, value):
+            self.__refid = value
+
+        @property
+        def role(self):
+            return self.__role
+
+        @role.setter
+        def role(self, value):
+            self.__role = value
 
     class CharSeq(object):
         def __init__(self):
@@ -27,7 +49,7 @@ class Entity(object):
         def __str__(self):
             return "charseq : start:%s, end:%s" % (self.__start, self.__end)
 
-    class EntityMentionExtent(object):
+    class EventMentionExtent(object):
 
         def __init__(self):
             self.__charseq = None
@@ -52,7 +74,7 @@ class Entity(object):
         def __str__(self):
             return "extent:%s, value:%s" % (self.__charseq, self.__value)
 
-    class EntityMentionHead(object):
+    class EventMentionLdcScope(object):
 
         def __init__(self):
             self.__charseq = None
@@ -64,7 +86,7 @@ class Entity(object):
 
         @charseq.setter
         def charseq(self, value):
-            self.__charseq = copy.deepcopy(value)
+            self.__charseq = value
 
         @property
         def value(self):
@@ -74,17 +96,8 @@ class Entity(object):
         def value(self, value):
             self.__value = value
 
-        def __str__(self):
-            return "extent:%s, value:%s" % (self.__charseq, self.__value)
+    class EventMentionAnchor(object):
 
-    class Attribute(object):
-        """
-        this class holds the attribute information of a entity,
-        and it could extraction extra useful information
-        to help some specific application area.
-        i bring this new annotation information so that
-        i could extract more information to achieve the recommended goals
-        """
         def __init__(self):
             self.__charseq = None
             self.__value = None
@@ -95,7 +108,7 @@ class Entity(object):
 
         @charseq.setter
         def charseq(self, value):
-            self.__charseq = copy.deepcopy(value)
+            self.__charseq = value
 
         @property
         def value(self):
@@ -105,34 +118,20 @@ class Entity(object):
         def value(self, value):
             self.__value = value
 
-        def __str__(self):
-            return "attribute:%s, value:%s" % (self.__charseq, self.__value)
-
-    class EntityMention(object):
+    class EventMentionArgument(object):
 
         def __init__(self):
-            self.__id = None
-            self.__type = None
+            self.__refid = None
             self.__role = None
             self.__extent = None
-            self.__attribute = None
-            self.__head = None
 
         @property
-        def id(self):
-            return self.__id
+        def refid(self):
+            return self.__refid
 
-        @id.setter
-        def id(self, value):
-            self.__id = value
-
-        @property
-        def type(self):
-            return self.__type
-
-        @type.setter
-        def type(self, value):
-            self.__type = value
+        @refid.setter
+        def refid(self, value):
+            self.__refid = value
 
         @property
         def role(self):
@@ -150,28 +149,16 @@ class Entity(object):
         def extent(self, value):
             self.__extent = copy.deepcopy(value)
 
-        @property
-        def attribute(self):
-            return self.__attribute
-
-        @attribute.setter
-        def attribute(self, value):
-            self.__attribute = value
-
-        @property
-        def head(self):
-            return self.__head
-
-        @head.setter
-        def head(self, value):
-            self.__head = copy.deepcopy(value)
-
     def __init__(self):
         self.__id = None
         self.__type = None
         self.__subtype = None
-        self.__class = None
-        self.__entity_mention = []
+        self.__modality = None
+        self.__polarity = None
+        self.__genericity = None
+        self.__tense = None
+        self.__event_argument_list = []
+        self.__event_mention_list = []
 
     @property
     def id(self):
@@ -198,24 +185,57 @@ class Entity(object):
         self.__subtype = value
 
     @property
-    def ec1ass(self):
-        return self.__class
+    def modality(self):
+        return self.__modality
 
-    @ec1ass.setter
-    def ec1ass(self, value):
-        self.__class = value
+    @modality.setter
+    def modality(self, value):
+        self.__modality = value
 
     @property
-    def entity_mention(self):
-        return self.__entity_mention
+    def polarity(self):
+        return self.__polarity
 
-    @entity_mention.setter
-    def entity_mention(self, value):
-        self.__entity_mention = copy.deepcopy(value)
+    @polarity.setter
+    def polarity(self, value):
+        self.__polarity = value
 
-    def __str__(self):
-        return "entity:id:%s, type:%s, subtype:%s, class:%s\n entity_mention count:%s" \
-                % (self.__id, self.__type, self.__subtype, self.__class, len(self.__entity_mention))
+    @property
+    def genericity(self):
+        return self.__genericity
+
+    @genericity.setter
+    def genericity(self, value):
+        self.__genericity = value
+
+    @property
+    def tense(self):
+        return self.__tense
+
+    @tense.setter
+    def tense(self, value):
+        self.__tense = value
+
+    @property
+    def event_argument_list(self):
+        return self.__event_argument_list
+
+    @event_argument_list.setter
+    def event_argument_list(self, value):
+        self.__event_argument_list.extend(value)
+
+    @property
+    def event_mention_list(self):
+        return self.__event_mention_list
+
+    @event_mention_list.setter
+    def event_mention_list(self, value):
+        self.__event_mention_list.extend(value)
+
+
+
+
+
 
 
 

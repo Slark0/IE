@@ -6,12 +6,14 @@ from functools import partial
 from tkinter import filedialog
 from tkinter import *
 
-root = Tk()
 
-text = Text(root, width=50, height=40)
-text.pack()
-text.insert(INSERT, 'I love study')
-
-
-# 原来的字符串变成'I 插入love study'
-mainloop()
+L = [1, 2]
+M = L
+L.append(3)
+L[0] = 9
+print(L, M)
+print("-------------------")
+L = [1, 2]
+M = L
+L += [3, 4]
+print(L, M)
