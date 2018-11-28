@@ -21,7 +21,7 @@ class CailianPress(object):
         # write logs to this file with specific file name
         self.log_file = self.cur_path + "\\logs\\" + self.web_name + "_" + self.cur_date + ".log"
         # write text data to this file with specific file name
-        self.data_file = self.cur_path + "\\data\\" + self.web_name + "_" + self.cur_date + ".data"
+        self.data_file = self.cur_path + "\\data\\" + self.web_name + "_" + self.cur_date + ".txt"
         self.driver = webdriver.Firefox()
         # text info
         self.text_list = []
@@ -32,17 +32,25 @@ class CailianPress(object):
         s = time.mktime(time.strptime(date, '%Y-%m-%d'))
         return int(s)
 
+    @staticmethod
+    def rename_file(path):
+        for parent, dirnames, filenames in os.walk(path):
+            for filename in filenames:
+                new_filename = filename.replace(".data", ".txt")
+                os.chdir(path)
+                os.rename(filename, new_filename)
+
     def read_last_time_from_the_latest_datafile(self):
         rootdir = self.cur_path + "\\data"
         print(rootdir)
         list_filenames = []
         for parent, dirnames, filenames in os.walk(rootdir):
             for filename in filenames:
-                date_part = filename.split("_")[1].replace(".data", "")
+                date_part = filename.split("_")[1].replace(".txt", "")
                 list_filenames.append(date_part)
         list_filenames.sort(key=self.datetime_timestamp, reverse=True)
         latest_date = list_filenames[0]
-        latest_file_name_path = rootdir + "\\cailianpress_" + latest_date + ".data"
+        latest_file_name_path = rootdir + "\\cailianpress_" + latest_date + ".txt"
         file = open(latest_file_name_path, mode='r', encoding='utf-8')
         line = file.readline()
         file.close()
@@ -444,11 +452,12 @@ class CailianPress(object):
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
         #self.extract_news_data_from_to_by_timetag("2018-07-13", "17:47", "2018-07-16", "10:41")
-        #self.extract_news_data_from("2018-11-12", "10:15")
+        #self.extract_news_data_from("2018-11-26", "11:32")
         self.extract_news_data_from_last_time()
         self.write_text_into_file()
 
 
 cls = CailianPress()
 cls.run()
+#CailianPress.rename_file("D:\dev\src\work\spider\data")
 CailianPress.count_news()

@@ -158,7 +158,7 @@ class Event(object):
         self.__genericity = None
         self.__tense = None
         self.__event_argument_list = []
-        self.__event_mention_list = []
+        self.__event_mention_list = []  # it suppose that there may be two or more event mentions in one sentence
 
     @property
     def id(self):
