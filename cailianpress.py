@@ -72,6 +72,30 @@ class CailianPress(object):
         print("total file: " + str(count_of_file))
         print("total news: " + str(count/2))
 
+    @staticmethod
+    def split_news_to_separate_file():
+        cur_path = str(sys.path[0])
+        root_dir = cur_path + "\\data"
+        sep_data_dir = cur_path + "\\split"
+        if not os.path.exists(sep_data_dir):
+            os.makedirs(sep_data_dir)
+
+        existed_split_file_list = []
+        for dirpath, dirnames, filenames in os.walk(sep_data_dir):
+            for folder in dirnames:
+                existed_split_file_list.append(folder)
+
+        for dirpath, dirnames, filenames in os.walk(root_dir):
+            for filename in filenames:
+                file_path = os.path.join(dirpath, filename)
+                if filename in existed_split_file_list:
+                    continue
+
+                fs = open(file_path, mode='r', encoding='utf-8')
+
+                fs.close()
+
+
     def valid_element_exist_by_xpath(self, ele, xpath):
         es = ele.find_elements_by_xpath(xpath)
         size = len(es)
@@ -457,7 +481,8 @@ class CailianPress(object):
         self.write_text_into_file()
 
 
-cls = CailianPress()
-cls.run()
+#cls = CailianPress()
+#cls.run()
 #CailianPress.rename_file("D:\dev\src\work\spider\data")
-CailianPress.count_news()
+#CailianPress.count_news()
+CailianPress.split_news_to_separate_file()
