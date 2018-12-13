@@ -88,11 +88,44 @@ class CailianPress(object):
         for dirpath, dirnames, filenames in os.walk(root_dir):
             for filename in filenames:
                 file_path = os.path.join(dirpath, filename)
+                print("正在处理:" + file_path)
                 if filename in existed_split_file_list:
                     continue
-
                 fs = open(file_path, mode='r', encoding='utf-8')
-
+                lines = fs.readlines()
+                split_news_filename = None
+                split_news_file_path = None
+                split_news_ann_filename = None
+                split_news_ann_file_path = None
+                split_news_dir = filename.replace(".txt", "")
+                split_news_path = sep_data_dir + "\\" + split_news_dir
+                if not os.path.exists(split_news_path):
+                    os.makedirs(split_news_path)
+                for idx, text in enumerate(lines, start=1):
+                    if idx % 2 == 1:
+                        text = text.replace(":", "_")
+                        text = text.replace("\n", "")
+                        text = text.replace(" ", "_")
+                        split_news_filename = text + "_" + str(idx) + ".txt"
+                        split_news_ann_filename = text + "_" + str(idx) + ".ann"
+                        split_news_file_path = os.path.join(split_news_path, split_news_filename)
+                        split_news_ann_file_path = os.path.join(split_news_path, split_news_ann_filename)
+                    if idx % 2 == 0:
+                        news = text
+                        try:
+                            with open(file=split_news_file_path, mode='w', encoding='utf-8') as fs_split:
+                                fs_split.write(news)
+                                fs_split.flush()
+                        except Exception as e:
+                            print(str(e))
+                        print("    " + str(split_news_file_path) + " 已生成")
+                        fs_ann = open(file=split_news_ann_file_path, mode='w', encoding='utf-8')
+                        fs_ann.close()
+                        print("    " + str(split_news_ann_file_path) + " 已创建")
+                        split_news_filename = ""
+                        split_news_file_path = ""
+                        split_news_ann_filename = ""
+                        split_news_ann_file_path = ""
                 fs.close()
 
 
@@ -481,8 +514,8 @@ class CailianPress(object):
         self.write_text_into_file()
 
 
-#cls = CailianPress()
-#cls.run()
+cls = CailianPress()
+cls.run()
 #CailianPress.rename_file("D:\dev\src\work\spider\data")
-#CailianPress.count_news()
-CailianPress.split_news_to_separate_file()
+CailianPress.count_news()
+#CailianPress.split_news_to_separate_file()

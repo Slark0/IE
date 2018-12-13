@@ -4,7 +4,7 @@
     <list default="true" id="fcc808dc-ee26-4c80-b1cd-488d3284c71f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cailianpress.py" beforeDir="false" afterPath="$PROJECT_DIR$/cailianpress.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,10 +13,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/spider$test.coverage" NAME="test Coverage Results" MODIFIED="1542356042861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$data_annotation.coverage" NAME="data_annotation Coverage Results" MODIFIED="1542617623212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/spider$test.coverage" NAME="test Coverage Results" MODIFIED="1544686810616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$eventextractiontool.coverage" NAME="eventextractiontool Coverage Results" MODIFIED="1536213860487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/spider$cailianpress.coverage" NAME="cailianpress Coverage Results" MODIFIED="1544612392249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/spider$cailianpress.coverage" NAME="cailianpress Coverage Results" MODIFIED="1544696770326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$dataannotation.coverage" NAME="dataannotation Coverage Results" MODIFIED="1540467405275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IE$cailianpress.coverage" NAME="cailianpress Coverage Results" MODIFIED="1528598590369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -24,7 +24,7 @@
     <session id="-544755228">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="141" />
+          <entry key="project.closed" value="145" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="2" />
@@ -39,7 +39,7 @@
           <entry key="project.open.time.21" value="4" />
           <entry key="project.open.time.22" value="8" />
           <entry key="project.open.time.23" value="5" />
-          <entry key="project.open.time.24" value="3" />
+          <entry key="project.open.time.24" value="4" />
           <entry key="project.open.time.25" value="10" />
           <entry key="project.open.time.26" value="2" />
           <entry key="project.open.time.27" value="1" />
@@ -50,36 +50,37 @@
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.34" value="1" />
-          <entry key="project.open.time.4" value="9" />
+          <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.4" value="11" />
           <entry key="project.open.time.43" value="2" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="141" />
+          <entry key="project.opened" value="145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="data" value="103" />
-          <entry key="py" value="33" />
-          <entry key="txt" value="13" />
+          <entry key="py" value="34" />
+          <entry key="txt" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="116" />
-          <entry key="Python" value="33" />
+          <entry key="PLAIN_TEXT" value="117" />
+          <entry key="Python" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="10113" />
+          <entry key="py" value="10977" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="10113" />
+          <entry key="Python" value="10977" />
         </counts>
       </usages-collector>
     </session>
@@ -89,7 +90,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entity.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3160">
+            <state>
               <caret line="158" column="36" selection-start-line="158" selection-start-column="36" selection-end-line="158" selection-end-column="36" />
               <folding>
                 <marker date="1542528293961" expanded="true" signature="35:36" ph="..." />
@@ -116,11 +117,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cailianpress.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="480">
+              <caret line="517" column="9" lean-forward="true" selection-start-line="517" selection-start-column="9" selection-end-line="517" selection-end-column="9" />
               <folding>
-                <marker date="1544615651099" expanded="true" signature="1461:1710" ph="..." />
-                <marker date="1544615651099" expanded="true" signature="3057:3804" ph="..." />
+                <marker date="1544696770264" expanded="true" signature="1461:1710" ph="..." />
+                <marker date="1544696770264" expanded="true" signature="3057:5820" ph="..." />
               </folding>
             </state>
           </provider>
@@ -161,9 +162,9 @@
         <option value="$PROJECT_DIR$/eventextractiontool.py" />
         <option value="$PROJECT_DIR$/dataannotation.py" />
         <option value="$PROJECT_DIR$/data_annotation.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/entity.py" />
         <option value="$PROJECT_DIR$/event.py" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/cailianpress.py" />
       </list>
     </option>
@@ -175,10 +176,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="149" />
-    <option name="y" value="66" />
+    <option name="x" value="244" />
+    <option name="y" value="154" />
     <option name="width" value="1569" />
-    <option name="height" value="1033" />
+    <option name="height" value="861" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -188,7 +189,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,10 +196,16 @@
               <item name="spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="spider" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="spider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spider" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -340,8 +346,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.cailianpress" />
-        <item itemvalue="Python.data_annotation" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.data_annotation" />
         <item itemvalue="Python.dataannotation" />
         <item itemvalue="Python.eventextractiontool" />
       </list>
@@ -361,14 +367,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="149" y="66" width="1569" height="1033" extended-state="0" />
+    <frame x="244" y="154" width="1569" height="861" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14844267" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21471173" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960968" weight="0.34149054" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960968" weight="0.43328747" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -393,7 +399,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-10-09.data" />
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-10-11.data" />
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-10-10.data" />
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-10-13.data" />
@@ -438,13 +443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -506,9 +504,16 @@
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-12-10.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-12-11.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/entity.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3160">
+        <state>
           <caret line="158" column="36" selection-start-line="158" selection-start-column="36" selection-end-line="158" selection-end-column="36" />
           <folding>
             <marker date="1542528293961" expanded="true" signature="35:36" ph="..." />
@@ -529,20 +534,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-12-11.txt">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+        <state relative-caret-position="240">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-12-12.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/cailianpress.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        <state relative-caret-position="480">
+          <caret line="517" column="9" lean-forward="true" selection-start-line="517" selection-start-column="9" selection-end-line="517" selection-end-column="9" />
           <folding>
-            <marker date="1544615651099" expanded="true" signature="1461:1710" ph="..." />
-            <marker date="1544615651099" expanded="true" signature="3057:3804" ph="..." />
+            <marker date="1544696770264" expanded="true" signature="1461:1710" ph="..." />
+            <marker date="1544696770264" expanded="true" signature="3057:5820" ph="..." />
           </folding>
         </state>
       </provider>
