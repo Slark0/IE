@@ -83,25 +83,37 @@ class CailianPress(object):
         existed_split_file_list = []
         for dirpath, dirnames, filenames in os.walk(sep_data_dir):
             for folder in dirnames:
+                print("存在：" + folder)
                 existed_split_file_list.append(folder)
 
+        title_pattern = re.compile(r'^【.+】')
+        #last_pattern = re.compile(r'（.*）?$')    # used to find the last source info from a ()
         for dirpath, dirnames, filenames in os.walk(root_dir):
             for filename in filenames:
                 file_path = os.path.join(dirpath, filename)
                 print("正在处理:" + file_path)
-                if filename in existed_split_file_list:
+                file_name = filename.replace('.txt', '')
+                if file_name in existed_split_file_list:
+                    print("已存在，跳过")
                     continue
                 fs = open(file_path, mode='r', encoding='utf-8')
                 lines = fs.readlines()
+                fs.close()
                 split_news_filename = None
                 split_news_file_path = None
                 split_news_ann_filename = None
                 split_news_ann_file_path = None
+                split_news_title_filename = None
+                split_news_title_file_path = None
+                split_news_title_ann_filename = None
+                split_news_title_ann_file_path = None
+
                 split_news_dir = filename.replace(".txt", "")
                 split_news_path = sep_data_dir + "\\" + split_news_dir
                 if not os.path.exists(split_news_path):
                     os.makedirs(split_news_path)
                 for idx, text in enumerate(lines, start=1):
+                    is_title_existed = False
                     if idx % 2 == 1:
                         text = text.replace(":", "_")
                         text = text.replace("\n", "")
@@ -110,23 +122,50 @@ class CailianPress(object):
                         split_news_ann_filename = text + "_" + str(idx) + ".ann"
                         split_news_file_path = os.path.join(split_news_path, split_news_filename)
                         split_news_ann_file_path = os.path.join(split_news_path, split_news_ann_filename)
+                        split_news_title_filename = text + "_title_" + str(idx) + ".txt"
+                        split_news_title_ann_filename = text + "_title_" + str(idx) + ".ann"
+                        split_news_title_file_path = os.path.join(split_news_path, split_news_title_filename)
+                        split_news_title_ann_file_path = os.path.join(split_news_path, split_news_title_ann_filename)
+
                     if idx % 2 == 0:
                         news = text
+                        news_content = text
+                        #last_match = last_pattern.match(news)
                         try:
+                            title_match = title_pattern.match(news)
+                            if title_match:
+                                is_title_existed = True
+                                title_text = title_match.group(0).replace("【", "").replace("】", "")
+                                news_content = re.sub(r'^【.+】', '', news)
+                                #print(news_content)
+                                with open(file=split_news_title_file_path, mode='w', encoding='utf-8') as fs_title_split:
+                                    fs_title_split.write(title_text)
+                                    fs_title_split.flush()
+
                             with open(file=split_news_file_path, mode='w', encoding='utf-8') as fs_split:
-                                fs_split.write(news)
+                                fs_split.write(news_content)
                                 fs_split.flush()
+                                news_content = None
                         except Exception as e:
                             print(str(e))
                         print("    " + str(split_news_file_path) + " 已生成")
                         fs_ann = open(file=split_news_ann_file_path, mode='w', encoding='utf-8')
                         fs_ann.close()
                         print("    " + str(split_news_ann_file_path) + " 已创建")
+                        if is_title_existed:
+                            fs_title_ann = open(file=split_news_title_ann_file_path, mode='w', encoding='utf-8')
+                            fs_title_ann.close()
+                            print("    " + str(split_news_title_ann_file_path) + " 已创建")
+
                         split_news_filename = ""
                         split_news_file_path = ""
                         split_news_ann_filename = ""
                         split_news_ann_file_path = ""
-                fs.close()
+                        split_news_title_filename = ""
+                        split_news_title_file_path = ""
+                        split_news_title_ann_filename = ""
+                        split_news_title_ann_file_path = ""
+
 
 
     def valid_element_exist_by_xpath(self, ele, xpath):
@@ -509,8 +548,8 @@ class CailianPress(object):
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
         #self.extract_news_data_from_to_by_timetag("2018-07-13", "17:47", "2018-07-16", "10:41")
-        #self.extract_news_data_from("2018-11-29", "11:14")
-        self.extract_news_data_from_last_time()
+        self.extract_news_data_from("2018-12-20", "19:30")
+        #self.extract_news_data_from_last_time()
         self.write_text_into_file()
 
 
