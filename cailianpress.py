@@ -136,12 +136,16 @@ class CailianPress(object):
                             if title_match:
                                 is_title_existed = True
                                 title_text = title_match.group(0).replace("【", "").replace("】", "")
-                                news_content = re.sub(r'^【.+】', '', news)
-                                #print(news_content)
+                                news_content = re.sub(r'^【.+】财联社\d{1,2}月\d{1,2}日讯，', '', news)
+                                news_content = re.sub(r'(（.*）)?$', '', news_content)
+                                #print('+++' + news_content)
                                 with open(file=split_news_title_file_path, mode='w', encoding='utf-8') as fs_title_split:
                                     fs_title_split.write(title_text)
                                     fs_title_split.flush()
-
+                            else:
+                                news_content = re.sub(r'财联社\d{1,2}月\d{1,2}日讯，', '', news)
+                                news_content = re.sub(r'(（.*）)?$', '', news_content)
+                                #print('---' + news_content)
                             with open(file=split_news_file_path, mode='w', encoding='utf-8') as fs_split:
                                 fs_split.write(news_content)
                                 fs_split.flush()
@@ -548,8 +552,8 @@ class CailianPress(object):
         #self.extract_news_data_from_to("2018-06-3", "2018-06-03")
         #self.extract_news_data_today()
         #self.extract_news_data_from_to_by_timetag("2018-07-13", "17:47", "2018-07-16", "10:41")
-        self.extract_news_data_from("2018-12-20", "19:30")
-        #self.extract_news_data_from_last_time()
+        #self.extract_news_data_from("2018-12-20", "19:30")
+        self.extract_news_data_from_last_time()
         self.write_text_into_file()
 
 
