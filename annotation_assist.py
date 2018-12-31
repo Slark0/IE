@@ -37,8 +37,7 @@ class AnnotationAssist(object):
         else:
             print(path + " 不存在！")
 
-    @staticmethod
-    def load_keywords_list_from(path):
+    def load_keywords_list_from(self, path):
         if os.path.exists(path):
             if os.access(path, os.R_OK):
                 lines = None
@@ -51,10 +50,16 @@ class AnnotationAssist(object):
                     print(str(e))
                 entity_type = path.split('\\')[-1].replace('.txt', '')
                 print(entity_type)
+                if not lines:
+                    return None
                 for line in lines:
+                    if not line:
+                        continue
                     words = line.split('，')
                     for word in words:
                         word = word.strip().replace('\n', '')
+                        if ',' in word:
+                            print(path + ' 发现英文逗号:' + word)
                         entity_pair = [word, entity_type]
                         #print(entity_pair[0] + '-' + entity_pair[1])
                         keywords.append(entity_pair)
@@ -66,7 +71,31 @@ class AnnotationAssist(object):
             print(path + " 不存在！")
             return None
 
-    def auto_annotation_of_entity(self, entity_type, key_words):
+    def load_all_keywords(self, path):
+        keyword_list = []
+        for root, dirs, files in os.walk(path):
+            txt_pattern = re.compile(r'.*txt$')
+            for file in files:
+                if txt_pattern.match(file):
+                    txt_file_path = os.path.join(root, file)
+                    words = self.load_keywords_list_from(txt_file_path)
+                    if not words:
+                        continue
+                    keyword_list.extend(words)
+        idx = 0
+        sorted_keyword_list = sorted(keyword_list, key=lambda x: (len(x[0])), reverse=True)
+
+        for key in sorted_keyword_list:
+            idx += 1
+            if idx % 5 == 0:
+                print(key[0] + '-' + key[1])
+            else:
+                print(key[0] + '-' + key[1] + '，', end='')
+
+        return sorted_keyword_list
+
+
+    def auto_annotation_of_entity(self, key_words):
         txt_pattern = re.compile(r'.*txt$')
         ann_pattern = re.compile(r'.*ann$')
         for root, dirs, files in os.walk(self.__root_dir):
@@ -80,6 +109,62 @@ class AnnotationAssist(object):
                             print(line)
                             for kw in key_words:
                                 #print('kw:' + kw)
+                                # a keyword could exist in a news more than one times
+                                kw_match_iter = re.finditer(kw[0], line)
+                                matched_kw_list = []  # [matched_kw_info, matched_kw_info, matched_kw_info]
+                                for m_it in kw_match_iter:
+                                    matched_kw_info = [kw, m_it.start(), m_it.end()]  # [keyword, start, end]
+                                    matched_kw_list.append(matched_kw_list)
+
+                                # print matched keyword list
+                                for mkl in matched_kw_list:
+                                    print(mkl[0] + ', ' + mkl[1] + ', ' + mkl[2])
+
+                                # to check these keywords whether exists in annotation file
+                                ann_file_path = txt_file_path.replace('.txt', '.ann')
+                                entity_pattern = re.compile(r'T\d*\t\S* (\d*) (\d*)\t.*')
+                                new_entity_records_list = []
+                                record_idx = self.count_of_entities(ann_file_path) + 1
+                                try:
+                                    with open(file=ann_file_path, mode='r', encoding='utf-8') as file:
+                                        lines = file.readlines()
+                                        for mkl in matched_kw_list:
+                                            is_founded = False
+                                            for line in lines:
+                                                entity_match = entity_pattern.match(line)
+                                                if entity_match:
+                                                    start = int(entity_match.group(1))
+                                                    if mkl[1] == start:
+                                                        is_founded = True
+                                                        end = int(entity_match.group(2))
+                                                        if end == mkl(2):
+                                                            print(mkl[0] + ', ' + mkl[1] + ', ' +
+                                                                  mkl[2] + ' 已存在')
+                                                        elif end > mkl[2]:
+                                                            print(mkl[0] + ', ' + mkl[1] + ', ' +
+                                                                  mkl[2] + ' 被包含')
+                                                        else:
+                                                            print(mkl[0] + ', ' + mkl[1] + ', ' +
+                                                                  mkl[2] + ' 非完整匹配')
+                                                        break
+                                                    else:
+                                                        continue
+
+                                            if not is_founded:
+                                                record = 'T' + str(record_idx) + '\t' + kw[1] + ' ' + \
+                                                         str(start) + ' ' + str(end) + '\t' + kw[0] + '\n'
+                                                new_entity_records_list.append(record)
+                                                record_idx += 1
+                                except Exception as e:
+                                    print(str(e))
+
+                                # to write record into ann file
+                                try:
+
+
+
+                                '''
+                                # this block code could only find a key word in one time
                                 start = line.find(kw[0])
                                 if start != -1:
                                     end = len(kw[0]) + start
@@ -93,7 +178,7 @@ class AnnotationAssist(object):
                                             with open(file=ann_file_path, mode='a+', encoding='utf-8') as file:
                                                 # build an annotation record
                                                 record_idx = self.count_of_entities(ann_file_path) + 1
-                                                record = 'T' + str(record_idx) + '\t' + entity_type + ' ' + \
+                                                record = 'T' + str(record_idx) + '\t' + kw[1] + ' ' + \
                                                          str(start) + ' ' + str(end) + '\t' + kw[0] + '\n'
                                                 #file.write(record)
                                                 print(record)
@@ -106,6 +191,7 @@ class AnnotationAssist(object):
                                             print(kw[0] + ' 被包含')
                                 else:
                                     continue
+                                '''
 
                     except Exception as e:
                         print(str(e))
@@ -130,6 +216,10 @@ class AnnotationAssist(object):
 
         return count
 
+    '''
+    these code could only check a word in one time
+    so, do not use it anymore
+    '''
     def search_exists_span_in_annotation_file(self, start_idx, path):
         entity_pattern = re.compile(r'T\d*\t\S* (\d*) (\d*)\t.*')
         try:
@@ -182,8 +272,10 @@ aa = AnnotationAssist()
 #aa.print_keywords(keywords)
 #aa.auto_annotation_of_entity('', keywords)
 #aa.print_all_current_news('D:\\dev\\src\\work\\brat\\cailianpress\\split')
+keywords = aa.load_all_keywords(r'D:\dev\src\work\brat\cailianpress\keywords')
+aa.auto_annotation_of_entity(keywords)
 #count = aa.count_of_entities(r'D:\dev\src\work\brat\cailianpress\split\cailianpress_2018-05-31\2018-05-31_02_27_457.ann')
 #print(count)
-keywords = aa.load_keywords_list_from(r'D:\dev\src\work\brat\cailianpress\keywords\地缘政治实体_人口中心.txt')
-aa.auto_annotation_of_entity('地缘政治实体_人口中心', keywords)
+#keywords = aa.load_keywords_list_from(r'D:\dev\src\work\brat\cailianpress\keywords\地缘政治实体_人口中心.txt')
+#aa.auto_annotation_of_entity('地缘政治实体_人口中心', keywords)
 #aa.print_keywords(keywords)
