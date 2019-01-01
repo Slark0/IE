@@ -84,118 +84,98 @@ class AnnotationAssist(object):
                     keyword_list.extend(words)
         idx = 0
         sorted_keyword_list = sorted(keyword_list, key=lambda x: (len(x[0])), reverse=True)
-
+        '''
         for key in sorted_keyword_list:
             idx += 1
             if idx % 5 == 0:
                 print(key[0] + '-' + key[1])
             else:
                 print(key[0] + '-' + key[1] + '，', end='')
-
+        '''
         return sorted_keyword_list
-
 
     def auto_annotation_of_entity(self, key_words):
         txt_pattern = re.compile(r'.*txt$')
         ann_pattern = re.compile(r'.*ann$')
         for root, dirs, files in os.walk(self.__root_dir):
+            entity_pattern = re.compile(r'T\d*\t\S* (\d*) (\d*)\t.*')
             for file in files:
                 if txt_pattern.match(file):
                     txt_file_path = os.path.join(root, file)
                     try:
-                        with open(file=txt_file_path, mode='r', encoding='utf-8') as file:
-                            line = file.readline()
-                            line = line.strip('\n')
-                            print(line)
+                        with open(file=txt_file_path, mode='r', encoding='utf-8') as f:
+                            text = f.readline()
+                            text = text.strip('\n')
+                            print(text)
+                            ann_file_path = txt_file_path.replace('.txt', '.ann')
+                            record_idx = self.count_of_entities(ann_file_path) + 1
+                            #test_str = '标普500指数上涨1.2%，完全收复周二失地。美股能源股大幅上涨，埃克森美孚涨3.4%，壳牌石油存托涨逾3%，雪弗龙涨2.65%，道达尔涨3.37%，中石油涨3.14%，康菲石油涨逾4%，英国石油、中石化、斯伦贝谢涨逾2%。'
+
                             for kw in key_words:
                                 #print('kw:' + kw)
+                                #print(kw[0])
                                 # a keyword could exist in a news more than one times
-                                kw_match_iter = re.finditer(kw[0], line)
+                                keyword_pattern = re.compile(kw[0])
+                                kw_match_iter = re.finditer(keyword_pattern, text)
                                 matched_kw_list = []  # [matched_kw_info, matched_kw_info, matched_kw_info]
                                 for m_it in kw_match_iter:
-                                    matched_kw_info = [kw, m_it.start(), m_it.end()]  # [keyword, start, end]
-                                    matched_kw_list.append(matched_kw_list)
-
-                                # print matched keyword list
-                                for mkl in matched_kw_list:
-                                    print(mkl[0] + ', ' + mkl[1] + ', ' + mkl[2])
+                                    matched_kw_info = [kw[0], str(m_it.start()), str(m_it.end())]  # [keyword, start, end]
+                                    print('--' + matched_kw_info[0] + ',' + matched_kw_info[1] + ',' + matched_kw_info[2])
+                                    matched_kw_list.append(matched_kw_info)
 
                                 # to check these keywords whether exists in annotation file
-                                ann_file_path = txt_file_path.replace('.txt', '.ann')
-                                entity_pattern = re.compile(r'T\d*\t\S* (\d*) (\d*)\t.*')
                                 new_entity_records_list = []
-                                record_idx = self.count_of_entities(ann_file_path) + 1
                                 try:
-                                    with open(file=ann_file_path, mode='r', encoding='utf-8') as file:
-                                        lines = file.readlines()
-                                        for mkl in matched_kw_list:
-                                            is_founded = False
-                                            for line in lines:
-                                                entity_match = entity_pattern.match(line)
-                                                if entity_match:
-                                                    start = int(entity_match.group(1))
-                                                    if mkl[1] == start:
-                                                        is_founded = True
-                                                        end = int(entity_match.group(2))
-                                                        if end == mkl(2):
-                                                            print(mkl[0] + ', ' + mkl[1] + ', ' +
-                                                                  mkl[2] + ' 已存在')
-                                                        elif end > mkl[2]:
-                                                            print(mkl[0] + ', ' + mkl[1] + ', ' +
-                                                                  mkl[2] + ' 被包含')
+                                    with open(file=ann_file_path, mode='r', encoding='utf-8') as af:
+                                        lines = af.readlines()
+                                        if len(matched_kw_list) > 0:
+                                            for mkl in matched_kw_list:
+                                                is_founded = False
+                                                for line in lines:
+                                                    entity_match = entity_pattern.match(line)
+                                                    if entity_match:
+                                                        start = int(entity_match.group(1))
+                                                        if int(mkl[1]) == start:
+                                                            is_founded = True
+                                                            print(start)
+                                                            end = int(entity_match.group(2))
+                                                            if end == int(mkl[2]):
+                                                                print(mkl[0] + ', ' + mkl[1] + ', ' +
+                                                                      mkl[2] + ' 已存在')
+                                                            elif end > int(mkl[2]):
+                                                                print(mkl[0] + ', ' + mkl[1] + ', ' +
+                                                                      mkl[2] + ' 被包含匹配')
+                                                            else:
+                                                                print(mkl[0] + ', ' + mkl[1] + ', ' +
+                                                                      mkl[2] + ' 包含匹配')
+                                                            break
                                                         else:
-                                                            print(mkl[0] + ', ' + mkl[1] + ', ' +
-                                                                  mkl[2] + ' 非完整匹配')
-                                                        break
-                                                    else:
-                                                        continue
+                                                            continue
 
-                                            if not is_founded:
-                                                record = 'T' + str(record_idx) + '\t' + kw[1] + ' ' + \
-                                                         str(start) + ' ' + str(end) + '\t' + kw[0] + '\n'
-                                                new_entity_records_list.append(record)
-                                                record_idx += 1
+                                                if not is_founded:
+                                                    record = 'T' + str(record_idx) + '\t' + kw[1] + ' ' + \
+                                                             str(mkl[1]) + ' ' + str(mkl[2]) + '\t' + mkl[0] + '\n'
+                                                    print(record)
+                                                    new_entity_records_list.append(record)
+                                                    record_idx += 1
                                 except Exception as e:
                                     print(str(e))
 
                                 # to write record into ann file
-                                try:
-
-
-
-                                '''
-                                # this block code could only find a key word in one time
-                                start = line.find(kw[0])
-                                if start != -1:
-                                    end = len(kw[0]) + start
-                                    print(kw[0] + 'start:' + str(start) + ', ' + 'end:' + str(end))
-                                    # to check this keyword whether exists in annotation file
-                                    ann_file_path = txt_file_path.replace('.txt', '.ann')
-                                    span_start, span_end = self.search_exists_span_in_annotation_file(start, ann_file_path)
-                                    if span_start == -1:
-                                        # to annotate this key word in a .ann file
-                                        try:
-                                            with open(file=ann_file_path, mode='a+', encoding='utf-8') as file:
-                                                # build an annotation record
-                                                record_idx = self.count_of_entities(ann_file_path) + 1
-                                                record = 'T' + str(record_idx) + '\t' + kw[1] + ' ' + \
-                                                         str(start) + ' ' + str(end) + '\t' + kw[0] + '\n'
-                                                #file.write(record)
-                                                print(record)
-                                        except Exception as e:
-                                            print(str(e))
-                                    else:
-                                        if int(span_end) == int(end):
-                                            print(kw[0] + ' 已存在')
-                                        else:
-                                            print(kw[0] + ' 被包含')
-                                else:
-                                    continue
-                                '''
+                                if len(new_entity_records_list) > 0:
+                                    try:
+                                        with open(file=ann_file_path, mode='a+', encoding='utf-8') as af2:
+                                            for record in new_entity_records_list:
+                                                pass
+                                                #print(record)
+                                                #af2.write(record)
+                                    except Exception as e:
+                                        print(str(e))
 
                     except Exception as e:
                         print(str(e))
                 elif ann_pattern.match(file):
+                    #pass
                     file_path = os.path.join(root, file)
                 else:
                     print('遇到非 .txt, .ann文件了，跳过')
