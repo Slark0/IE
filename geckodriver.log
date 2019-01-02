@@ -6212,3 +6212,73 @@ JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c
 [Child 14436[GPU 123
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1546339447093	geckodriver	INFO	geckodriver 0.21.0
+1546339447109	geckodriver	INFO	Listening on 127.0.0.1:9350
+1546339450140	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Cafe\\AppData\\Local\\Temp\\rust_mozprofile.TAj8aLqwyrmA"
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+1546339452723	Marionette	INFO	Listening on port 9358
+1546339453694	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 0: Successfully compiled asm.js code (total compilation time 1ms; not stored in cache (too small to benefit))
+1546339827810	geckodriver	INFO	geckodriver 0.21.0
+1546339827818	geckodriver	INFO	Listening on 127.0.0.1:9478
+1546339830843	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Cafe\\AppData\\Local\\Temp\\rust_mozprofile.ytcQof6Bxwf5"
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+1546339833338	Marionette	INFO	Listening on port 9486
+1546339833706	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 0: Successfully compiled asm.js code (total compilation time 1ms; not stored in cache (too small to benefit))
+1546340049479	geckodriver	INFO	geckodriver 0.21.0
+1546340049487	geckodriver	INFO	Listening on 127.0.0.1:9558
+1546340052492	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Cafe\\AppData\\Local\\Temp\\rust_mozprofile.9RBq6fpNBo5S"
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+1546340055079	Marionette	INFO	Listening on port 9566
+1546340055460	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 0: Successfully compiled asm.js code (total compilation time 1ms; not stored in cache (too small to benefit))
+1546340199108	geckodriver	INFO	geckodriver 0.21.0
+1546340199116	geckodriver	INFO	Listening on 127.0.0.1:9632
+1546340202142	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Cafe\\AppData\\Local\\Temp\\rust_mozprofile.PUsVt5cbSxlL"
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+1546340204831	Marionette	INFO	Listening on port 9640
+1546340205161	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 0: Successfully compiled asm.js code (total compilation time 1ms; not stored in cache (too small to benefit))
+[Child 8340, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 83[GPU 1490
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1546423439310	geckodriver	INFO	geckodriver 0.21.0
+1546423439310	geckodriver	INFO	Listening on 127.0.0.1:3257
+1546423442343	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Cafe\\AppData\\Local\\Temp\\rust_mozprofile.nnZySWgr3VBg"
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Cafe\AppData\Local\openvr\openvrpaths.vrpath
+1546423444987	Marionette	INFO	Listening on port 3265
+1546423445235	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 1: unreachable code after return statement
+JavaScript warning: https://wwwjs.cls.cn/_next/static/commons/main-afdc7f9e5157c9408b78.js, line 0: Successfully compiled asm.js code (total compilation time 1ms; not stored in cache (too small to benefit))
+1546423567696	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+[[Child 15920, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 15920, C[Child 1432, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1432[GPU 9440, C
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

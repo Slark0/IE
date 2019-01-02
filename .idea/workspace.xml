@@ -4,6 +4,8 @@
     <list default="true" id="fcc808dc-ee26-4c80-b1cd-488d3284c71f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/annotation_assist.py" beforeDir="false" afterPath="$PROJECT_DIR$/annotation_assist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cailianpress.py" beforeDir="false" afterPath="$PROJECT_DIR$/cailianpress.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,18 +16,18 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/spider$data_annotation.coverage" NAME="data_annotation Coverage Results" MODIFIED="1542617623212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/spider$test.coverage" NAME="test Coverage Results" MODIFIED="1546331975037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/spider$test.coverage" NAME="test Coverage Results" MODIFIED="1546430057442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$eventextractiontool.coverage" NAME="eventextractiontool Coverage Results" MODIFIED="1536213860487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/spider$cailianpress.coverage" NAME="cailianpress Coverage Results" MODIFIED="1546259874158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/spider$cailianpress.coverage" NAME="cailianpress Coverage Results" MODIFIED="1546423438967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$dataannotation.coverage" NAME="dataannotation Coverage Results" MODIFIED="1540467405275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IE$cailianpress.coverage" NAME="cailianpress Coverage Results" MODIFIED="1528598590369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/spider$annotation_assist.coverage" NAME="annotation_assist Coverage Results" MODIFIED="1546334733696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/spider$annotation_assist.coverage" NAME="annotation_assist Coverage Results" MODIFIED="1546430753359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-544755228">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="176" />
+          <entry key="project.closed" value="178" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="2" />
@@ -53,7 +55,7 @@
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.39" value="1" />
-          <entry key="project.open.time.4" value="20" />
+          <entry key="project.open.time.4" value="22" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.43" value="2" />
           <entry key="project.open.time.5" value="2" />
@@ -61,47 +63,62 @@
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="176" />
+          <entry key="project.opened" value="178" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="data" value="103" />
-          <entry key="py" value="42" />
+          <entry key="py" value="44" />
           <entry key="pyi" value="2" />
-          <entry key="txt" value="40" />
+          <entry key="txt" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="143" />
-          <entry key="Python" value="42" />
+          <entry key="PLAIN_TEXT" value="147" />
+          <entry key="Python" value="44" />
           <entry key="PythonStub" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="20409" />
+          <entry key="py" value="22636" />
+          <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="20409" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="22635" />
+          <entry key="RegExp" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/annotation_assist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
-              <caret line="129" column="62" lean-forward="true" selection-start-line="129" selection-start-column="62" selection-end-line="129" selection-end-column="62" />
+            <state relative-caret-position="67">
+              <caret line="268" selection-start-line="268" selection-end-line="268" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
-                <marker date="1546334727729" expanded="true" signature="255:256" ph="..." />
-                <marker date="1546334727729" expanded="true" signature="255:261" ph="..." />
+                <marker date="1546430751124" expanded="true" signature="255:256" ph="..." />
+                <marker date="1546430751124" expanded="true" signature="255:261" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="668">
+              <caret line="101" column="109" lean-forward="true" selection-start-line="101" selection-start-column="109" selection-end-line="101" selection-end-column="109" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,34 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-05-31.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="482" lean-forward="true" selection-start-line="482" selection-end-line="482" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-06-07.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_annotation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="56" column="46" lean-forward="true" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-540">
+              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -153,9 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>__refid</find>
-      <find>.txt</find>
-      <find>.data</find>
       <find>（腾讯汽车）</find>
       <find>日经新闻</find>
       <find>（</find>
@@ -183,6 +171,9 @@
       <find>break</find>
       <find>标普500</find>
       <find>line</find>
+      <find>mkl[2]</find>
+      <find>三桶油</find>
+      <find>俱乐部</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,9 +192,10 @@
         <option value="$PROJECT_DIR$/entity.py" />
         <option value="$PROJECT_DIR$/event.py" />
         <option value="$PROJECT_DIR$/data/cailianpress_2018-12-24.txt" />
+        <option value="$PROJECT_DIR$/data/cailianpress_2018-12-31.txt" />
         <option value="$PROJECT_DIR$/cailianpress.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/annotation_assist.py" />
+        <option value="$PROJECT_DIR$/test.py" />
       </list>
     </option>
   </component>
@@ -213,11 +205,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="88" />
-    <option name="y" value="124" />
-    <option name="width" value="1824" />
-    <option name="height" value="860" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1900" />
+    <option name="height" value="929" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -234,11 +226,6 @@
             <path>
               <item name="spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="spider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spider" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -405,14 +392,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="124" width="1824" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13548753" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18017058" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960968" weight="0.13774104" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960968" weight="0.54013014" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.45209175" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -437,8 +424,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-10-30.data" />
-    <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-10-31.data" />
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-11-01.data" />
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-11-02.data" />
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-11-03.data" />
@@ -612,48 +597,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cailianpress.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="560" column="9" lean-forward="true" selection-start-line="560" selection-start-column="9" selection-end-line="560" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-06-07.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_annotation.py">
+    <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-12-29.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="-424">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-12-31.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="56" column="46" lean-forward="true" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cailianpress.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="555" column="8" selection-start-line="555" selection-start-column="8" selection-end-line="555" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_annotation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-737">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/cailianpress_2018-05-31.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="482" lean-forward="true" selection-start-line="482" selection-end-line="482" />
+        <state relative-caret-position="-540">
+          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/annotation_assist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="129" column="62" lean-forward="true" selection-start-line="129" selection-start-column="62" selection-end-line="129" selection-end-column="62" />
+        <state relative-caret-position="67">
+          <caret line="268" selection-start-line="268" selection-end-line="268" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <marker date="1546334727729" expanded="true" signature="255:256" ph="..." />
-            <marker date="1546334727729" expanded="true" signature="255:261" ph="..." />
+            <marker date="1546430751124" expanded="true" signature="255:256" ph="..." />
+            <marker date="1546430751124" expanded="true" signature="255:261" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="101" column="109" lean-forward="true" selection-start-line="101" selection-start-column="109" selection-end-line="101" selection-end-column="109" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

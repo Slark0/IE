@@ -99,6 +99,7 @@ class AnnotationAssist(object):
         ann_pattern = re.compile(r'.*ann$')
         for root, dirs, files in os.walk(self.__root_dir):
             entity_pattern = re.compile(r'T\d*\t\S* (\d*) (\d*)\t.*')
+
             for file in files:
                 if txt_pattern.match(file):
                     txt_file_path = os.path.join(root, file)
@@ -110,7 +111,16 @@ class AnnotationAssist(object):
                             ann_file_path = txt_file_path.replace('.txt', '.ann')
                             record_idx = self.count_of_entities(ann_file_path) + 1
                             #test_str = '标普500指数上涨1.2%，完全收复周二失地。美股能源股大幅上涨，埃克森美孚涨3.4%，壳牌石油存托涨逾3%，雪弗龙涨2.65%，道达尔涨3.37%，中石油涨3.14%，康菲石油涨逾4%，英国石油、中石化、斯伦贝谢涨逾2%。'
+                            # to match a confenrence, such as, 2017年第10界中国各种博览会, 第10界中国各种大会
+                            confenrence_pattern = re.compile(
+                                r'((\d{2,4}年)|(第\S*界))(第\S界)?\S*?(大会|会议|博览会|展览会|讨论会|研讨会|展销会|小组会|年会|论坛|峰会)')
+                            # to match a date
+                            date_pattern = re.compile(
+                                r'(((去年|今年|\d{2,4}年)?(\d{1,2}|本|上)月(\d{1,2}(日|号))?)|(\d{1,2}(日|号)))(上午|下午|中午|晚间|夜晚|凌晨)?')
+                            # to match a stock index, percentage number
+                            percent_pattern = r'\d+(\.\d+)?(%|点关口|关口|点大关|大关|个百分点|个点|点)'
 
+                            # to check all the keywords
                             for kw in key_words:
                                 #print('kw:' + kw)
                                 #print(kw[0])
@@ -135,20 +145,25 @@ class AnnotationAssist(object):
                                                     entity_match = entity_pattern.match(line)
                                                     if entity_match:
                                                         start = int(entity_match.group(1))
-                                                        if int(mkl[1]) == start:
+                                                        end = int(entity_match.group(2))
+                                                        mkl1 = int(mkl[1])
+                                                        mkl2 = int(mkl[2])
+                                                        if mkl1 == start:
                                                             is_founded = True
-                                                            print(start)
-                                                            end = int(entity_match.group(2))
-                                                            if end == int(mkl[2]):
+                                                            if end == mkl2:
                                                                 print(mkl[0] + ', ' + mkl[1] + ', ' +
                                                                       mkl[2] + ' 已存在')
-                                                            elif end > int(mkl[2]):
+                                                            elif end > mkl2:
                                                                 print(mkl[0] + ', ' + mkl[1] + ', ' +
                                                                       mkl[2] + ' 被包含匹配')
                                                             else:
                                                                 print(mkl[0] + ', ' + mkl[1] + ', ' +
                                                                       mkl[2] + ' 包含匹配')
                                                             break
+                                                        elif end > mkl1 > start:
+                                                            is_founded = True
+                                                            print(mkl[0] + ', ' + mkl[1] + ', '
+                                                                  + mkl[2] + ' 内包含匹配')
                                                         else:
                                                             continue
 
@@ -251,9 +266,9 @@ aa = AnnotationAssist()
 #keywords = aa.load_keywords_list_from("D:\\dev\\src\\work\\brat\cailianpress\\中国人口中心.txt")
 #aa.print_keywords(keywords)
 #aa.auto_annotation_of_entity('', keywords)
-#aa.print_all_current_news('D:\\dev\\src\\work\\brat\\cailianpress\\split')
-keywords = aa.load_all_keywords(r'D:\dev\src\work\brat\cailianpress\keywords')
-aa.auto_annotation_of_entity(keywords)
+aa.print_all_current_news('D:\\dev\\src\\work\\brat\\cailianpress\\split')
+#keywords = aa.load_all_keywords(r'D:\dev\src\work\brat\cailianpress\keywords')
+#aa.auto_annotation_of_entity(keywords)
 #count = aa.count_of_entities(r'D:\dev\src\work\brat\cailianpress\split\cailianpress_2018-05-31\2018-05-31_02_27_457.ann')
 #print(count)
 #keywords = aa.load_keywords_list_from(r'D:\dev\src\work\brat\cailianpress\keywords\地缘政治实体_人口中心.txt')
