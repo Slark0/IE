@@ -137,7 +137,7 @@ class CailianPress(object):
                                 is_title_existed = True
                                 title_text = title_match.group(0).replace("【", "").replace("】", "")
                                 news_content = re.sub(r'^【.+】财联社\d{1,2}月\d{1,2}日讯，', '', news)
-                                news_content = re.sub(r'(（.*）)?$', '', news_content)
+                                news_content = re.sub(r'(（[^）（]+?）)$', '', news_content)
                                 #print('+++' + news_content)
                                 with open(file=split_news_title_file_path, mode='w', encoding='utf-8') as fs_title_split:
                                     fs_title_split.write(title_text)
