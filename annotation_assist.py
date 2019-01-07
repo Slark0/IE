@@ -240,8 +240,8 @@ class AnnotationAssist(object):
                                                entity_type,
                                                record_idx)
         if len(new_list):
-            print('record after ' + entity_type + ': ' + str(record_idx + len(new_list)))
-        self.write_entity_record_list_to_ann_file(new_list, ann_file_path)
+            #print('record after ' + entity_type + ': ' + str(record_idx + len(new_list)))
+            self.write_entity_record_list_to_ann_file(new_list, ann_file_path)
         return len(new_list)
 
     def auto_annotation(self, keywords_of_entity, keywords_of_event):
@@ -265,7 +265,7 @@ class AnnotationAssist(object):
         price_pattern = re.compile(
             r'\d+(\.\d+)?(万元/平方米|美元/桶|美元/吨|美金/吨|元/立方米|万桶/日|欧元/公斤|6元/手|元/吨|元/股|美元关口|亿元|万美元|万亿美元|美元|亿美元|亿英镑|万英镑|英镑|加元|亿加元|元人民币|万亿|美金|亿日元|千万日元|日元|万元|元)')
         # to match a measure
-        measure_pattern = re.compile(r'\d+(\.\d+)?(千公顷|万公顷|公顷|万平方米|千平方米|平方米)')
+        measure_pattern = re.compile(r'\d+(\.\d+)?(千公顷|万公顷|公顷|万平方米|千平方米|平方米|斤|公斤|克|升|毫升|千克|毫克)')
         # to match a count
         count_pattern = re.compile(
             r'第?\d+(起|次|手|宗|份|辆|台|套|场|件|项|家|万股|千股|股)')  # 个 usually used with 月， they stand for a period
@@ -346,7 +346,7 @@ class AnnotationAssist(object):
                         for en_it in entity_keyword_match_iter:
                             # mkl structs [keyword, start, end]
                             matched_kw_info = [kw[0], str(en_it.start()), str(en_it.end())]
-                            print('--' + matched_kw_info[0] + ',' + matched_kw_info[1] + ',' + matched_kw_info[2])
+                            #print('--' + matched_kw_info[0] + ',' + matched_kw_info[1] + ',' + matched_kw_info[2])
                             matched_entity_keyword_list.append(matched_kw_info)
 
                         # to check these keywords whether exists in annotation file
@@ -479,10 +479,10 @@ aa = AnnotationAssist()
 #keywords = aa.load_keywords_list_from("D:\\dev\\src\\work\\brat\cailianpress\\中国人口中心.txt")
 #aa.print_keywords(keywords)
 #aa.auto_annotation('', keywords)
-#aa.print_all_current_news('D:\\dev\\src\\work\\brat\\cailianpress\\split')
-keyword_of_entity = aa.load_all_keywords(r'D:\dev\src\work\brat\cailianpress\entity_keywords')
-keyword_of_event = aa.load_all_keywords(r'D:\dev\src\work\brat\cailianpress\event_keywords')
-aa.auto_annotation(keyword_of_entity, keyword_of_event)
+aa.print_all_current_news('D:\\dev\\src\\work\\brat\\cailianpress\\split')
+#keyword_of_entity = aa.load_all_keywords(r'D:\dev\src\work\brat\cailianpress\entity_keywords')
+#keyword_of_event = aa.load_all_keywords(r'D:\dev\src\work\brat\cailianpress\event_keywords')
+#aa.auto_annotation(keyword_of_entity, keyword_of_event)
 #count = aa.count_of_entities(r'D:\dev\src\work\brat\cailianpress\split\cailianpress_2018-05-31\2018-05-31_02_27_457.ann')
 #print(count)
 #keywords = aa.load_keywords_list_from(r'D:\dev\src\work\brat\cailianpress\keywords\地缘政治实体_人口中心.txt')

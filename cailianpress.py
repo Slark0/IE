@@ -557,8 +557,8 @@ class CailianPress(object):
         self.write_text_into_file()
 
 
-#cls = CailianPress()
-#cls.run()
+cls = CailianPress()
+cls.run()
 #CailianPress.rename_file("D:\dev\src\work\spider\data")
 CailianPress.count_news()
-CailianPress.split_news_to_separate_file()
+#CailianPress.split_news_to_separate_file()
